@@ -17,13 +17,16 @@ The error we are getting is :
 
 ### Explanation 
 
-error_info_container has a protect destructor, which is not virtual.
-However, Visual Studio sees this as a bug, if you enable more warnings, like so (see CMakeLists.txt)
+error_info_container has a protected destructor, which is not virtual:  this is legitimate.
+
+However, Visual Studio sees this as a bug, if you enable more warnings, like below 
 
 ```
 add_compile_options(/W3)
 add_compile_options(/we4265)
 ```
+
+(see CMakeLists.txt for a more complete example)
 
 ### A possible patch is shown below:
 
