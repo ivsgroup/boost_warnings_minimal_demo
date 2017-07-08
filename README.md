@@ -9,7 +9,9 @@ A minimal demo that shows how to reproduce a warning inside `boost/exception/exc
 The error we are getting is :
 ```
 (ClCompile target) ->
-  boost_warnings_minimal_demo\boost_1_64_0\boost/exception/exception.hpp(176): error C4265: 'boost::exception_detail::error_info_container': class has virtual functions, but destructor is not virtual
+  boost_warnings_minimal_demo\boost_1_64_0\boost/exception/exception.hpp(176): 
+  error C4265: 'boost::exception_detail::error_info_container': 
+  class has virtual functions, but destructor is not virtual
 ```
 
 
@@ -25,6 +27,7 @@ add_compile_options(/we4265)
 
 ### A possible patch is shown below:
 
+```
 --- a/boost/exception/exception.hpp
 +++ b/boost_1_64_0-patched/boost/exception/exception.hpp
 @@ -10,6 +10,7 @@
@@ -35,3 +38,4 @@ add_compile_options(/we4265)
  #endif
  
  #ifdef BOOST_EXCEPTION_MINI_BOOST
+```
