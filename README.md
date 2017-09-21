@@ -1,6 +1,8 @@
 # boost_warnings_minimal_demo
 A minimal demo that shows how to reproduce a warning inside `boost/exception/exception.hpp` with `Visual Studio 2015` (and probably other versions).
 
+Reported to boost trac here :  https://svn.boost.org/trac10/ticket/13227
+
 ### Steps to reproduce the problem
 
 * Run get_boost.sh : this will download boost 1.64.0 and create an original + a patched version.
